@@ -8,6 +8,8 @@ public class Dev15potagerBApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Dev15potagerBApplication.class, args);
+		
+		System.out.println("launch complete");
 	}
 
 }
