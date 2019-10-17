@@ -1,5 +1,7 @@
 package fr.solutec.potagerb.entities;
 
+import java.awt.Image;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,11 +15,12 @@ public class User {
 	private String pw;
 	private String tel;
 	private int age;
+	private Image avatar;
 	
 	/*@ManyToMany
 	Set<Terrain> ;*/
 
-	public User(String nom, String prenom, String mail, String pw, String tel, int age) {
+	public User(String nom, String prenom, String mail, String pw, String tel, int age, Image avatar) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -25,6 +28,7 @@ public class User {
 		this.pw = pw;
 		this.tel = tel;
 		this.age = age;
+		this.avatar = avatar;
 	}
 
 	public User() {
@@ -87,6 +91,14 @@ public class User {
 		this.age = age;
 	}
 
+	public Image getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(Image avatar) {
+		this.avatar = avatar;
+	}
+	
 	/*public Terrain getTerrain() {
 		return terrain;
 	}
