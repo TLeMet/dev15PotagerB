@@ -28,8 +28,8 @@ public class Terrain {
 	
 	@ManyToMany @JoinTable(
 			name = "User_Terrain", 
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "terrain_id"))
+			joinColumns = @JoinColumn(name = "idUser"),
+			inverseJoinColumns = @JoinColumn(name = "idTerrain"))
 	Set<User> userOfTerrain;
 	
 	@ManyToOne
