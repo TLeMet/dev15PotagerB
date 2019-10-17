@@ -15,8 +15,8 @@ public class User {
 	private String tel;
 	private int age;
 	
-	@ManyToOne
-	private Terrain terrain;
+	/*@OneToMany
+	private Terrain terrain;*/
 
 	public User(String pseudo, String nom, String prenom, String mail, String pw, String tel, int age) {
 		super();
@@ -27,6 +27,10 @@ public class User {
 		this.pw = pw;
 		this.tel = tel;
 		this.age = age;
+	}
+
+	public User() {
+		super();
 	}
 
 	public Long getId() {
@@ -93,18 +97,18 @@ public class User {
 		this.age = age;
 	}
 
-	public Terrain getTerrain() {
+	/*public Terrain getTerrain() {
 		return terrain;
 	}
 
 	public void setTerrain(Terrain terrain) {
 		this.terrain = terrain;
-	}
+	}*/
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail
-				+ ", pw=" + pw + ", tel=" + tel + ", age=" + age + ", terrain=" + terrain + "]";
+				+ ", pw=" + pw + ", tel=" + tel + ", age=" + age;// + ", terrain=" + terrain + "]";
 	}
 	
 }
