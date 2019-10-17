@@ -22,8 +22,13 @@ public class UserRest {
 	}
 	
 	@RequestMapping(value="/users/{id}", method=RequestMethod.GET)
-	public Optional<User> getUser(@PathVariable Long id) {
+	public Optional<User> getUserbyId(@PathVariable Long id) {
 		return userRep.findById(id); 
+	}
+	
+	@RequestMapping(value="/users/{pseudo}", method=RequestMethod.GET)
+	public List<User> getUserbyPseudo(@PathVariable String pseudo) {
+		return userRep.findByPseudo(pseudo); 
 	}
 	
 	@RequestMapping(value="/users", method=RequestMethod.POST)
@@ -38,7 +43,7 @@ public class UserRest {
 	}
 	
 	@RequestMapping(value="/users/{id}", method=RequestMethod.PUT)
-	public User modifUser(@PathVariable Long id, @RequestBody User u) {
+	public User editUser(@PathVariable Long id, @RequestBody User u) {
 		u.setId(id);
 		return userRep.save(u);
 	}
