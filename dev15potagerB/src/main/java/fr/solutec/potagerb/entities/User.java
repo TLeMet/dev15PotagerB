@@ -1,5 +1,7 @@
 package fr.solutec.potagerb.entities;
 
+import java.awt.Image;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,26 +9,26 @@ public class User {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	private String pseudo;
 	private String nom;
 	private String prenom;
 	private String mail;
 	private String pw;
 	private String tel;
 	private int age;
+	private Image avatar;
 	
 	/*@ManyToMany
 	Set<Terrain> ;*/
 
-	public User(String pseudo, String nom, String prenom, String mail, String pw, String tel, int age) {
+	public User(String nom, String prenom, String mail, String pw, String tel, int age, Image avatar) {
 		super();
-		this.pseudo = pseudo;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.mail = mail;
 		this.pw = pw;
 		this.tel = tel;
 		this.age = age;
+		this.avatar = avatar;
 	}
 
 	public User() {
@@ -39,14 +41,6 @@ public class User {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getPseudo() {
-		return pseudo;
-	}
-
-	public void setPseudo(String pseudo) {
-		this.pseudo = pseudo;
 	}
 
 	public String getNom() {
@@ -97,6 +91,14 @@ public class User {
 		this.age = age;
 	}
 
+	public Image getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(Image avatar) {
+		this.avatar = avatar;
+	}
+	
 	/*public Terrain getTerrain() {
 		return terrain;
 	}
@@ -107,7 +109,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail
+		return "User [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail
 				+ ", pw=" + pw + ", tel=" + tel + ", age=" + age;// + ", terrain=" + terrain + "]";
 	}
 	
