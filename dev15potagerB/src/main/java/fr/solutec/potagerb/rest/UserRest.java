@@ -26,9 +26,9 @@ public class UserRest {
 		return userRep.findById(id); 
 	}
 	
-	@RequestMapping(value="/users/{pseudo}", method=RequestMethod.GET)
-	public List<User> getUserbyPseudo(@PathVariable String pseudo) {
-		return userRep.findByPseudo(pseudo); 
+	@RequestMapping(value="/users/{mail}", method=RequestMethod.GET)
+	public List<User> getUserbymMail(@PathVariable String mail) {
+		return userRep.findByMail(mail); 
 	}
 	
 	@RequestMapping(value="/users", method=RequestMethod.POST)
