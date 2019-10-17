@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.solutec.potagerb.dao.TerrainRepository;
 import fr.solutec.potagerb.entities.Terrain;
+import fr.solutec.potagerb.entities.User;
 
 @RestController
 @CrossOrigin("*")
@@ -33,11 +34,11 @@ public class TerrainRest {
 		return terrResp.findById(id);
 	}
 	
-	// Recherche d'un terrain par id propriétaire
-	@RequestMapping(value="/terrainsprop/{id}", method = RequestMethod.GET)
-	public Optional<Terrain> getTerrainByIdProprio(@PathVariable Long idProp){
-		return terrResp.findByIdProp(idProp);
-	}
+	/* // Recherche d'un terrain par id propriétaire
+	@RequestMapping(value="/terrainsprop/{p}", method = RequestMethod.GET)
+	public Optional<Terrain> getTerrainByIdProprio(@PathVariable User p){
+		return terrResp.findByIdProp(p); 
+	} */
 	
 	// Recherche d'un terrain par type
 	@RequestMapping(value="/terrains/{idType}", method= RequestMethod.GET)
