@@ -15,5 +15,5 @@ public interface TerrainRepository extends CrudRepository<Terrain, Long>{
 	
 	public Optional<Terrain> findBySurfaceGreaterThanEqual(double surface);
 	
-	public Optional<Terrain> findByName(String nom);
+	public Optional<Terrain> findByNom(String nom);
 }

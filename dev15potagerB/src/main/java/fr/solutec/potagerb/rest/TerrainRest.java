@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -53,7 +54,16 @@ public class TerrainRest {
 	// Recherche terrain par nom
 	@RequestMapping(value="/terrains/nom/{nom}")
 	public Optional<Terrain> getTerrainByName(@PathVariable String nom){
-		return terrResp.findByName(nom);
+		return terrResp.findByNom(nom);
 	}
+	
+	
+	
+	// Insertion terrain
+	@RequestMapping(value="/terrains", method= RequestMethod.POST)
+	public Terrain saveTerrain(@RequestBody Terrain t) {
+		return terrResp.save(t);
+	}
+	
 	
 }
