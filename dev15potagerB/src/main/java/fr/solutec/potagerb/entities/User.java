@@ -15,8 +15,8 @@ public class User {
 	private String tel;
 	private int age;
 	
-	/*@OneToMany
-	private Terrain terrain;*/
+	/*@ManyToMany
+	Set<Terrain> ;*/
 
 	public User(String pseudo, String nom, String prenom, String mail, String pw, String tel, int age) {
 		super();
