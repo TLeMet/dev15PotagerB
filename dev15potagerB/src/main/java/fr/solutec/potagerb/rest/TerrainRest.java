@@ -40,11 +40,11 @@ public class TerrainRest {
 		return terrResp.findByIdProp(p); 
 	} */
 	
-	// Recherche d'un terrain par type
-	@RequestMapping(value="/terrains/{idType}", method= RequestMethod.GET)
+	/* // Recherche d'un terrain par type
+	@RequestMapping(value="/terrains/type/{idType}", method= RequestMethod.GET)
 	public Optional<Terrain> getTerrainByType(@PathVariable Long idType){
-		return terrResp.findByType(idType);
-	}
+		return terrResp.findByIdType(idType); 
+	} */
 	
 	// Recherche d'un terrain par surface min
 	@RequestMapping(value="/terrains/surface/{surf}", method= RequestMethod.GET)
@@ -65,6 +65,7 @@ public class TerrainRest {
 	public Terrain saveTerrain(@RequestBody Terrain t) {
 		return terrResp.save(t);
 	}
+	
 	
 	
 }

@@ -12,7 +12,7 @@ public interface TerrainRepository extends CrudRepository<Terrain, Long>{
 
 	// public Optional<Terrain> findByIdProp(User proprietaire);
 	
-	public Optional<Terrain> findByType(Long idType);
+	// public Optional<Terrain> findByIdType(Long id);
 	
 	public Optional<Terrain> findBySurfaceGreaterThanEqual(double surface);
 	
