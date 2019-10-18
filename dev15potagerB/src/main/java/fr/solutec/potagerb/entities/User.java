@@ -21,13 +21,12 @@ public class User {
 	@Column(nullable = true)
 	private int age;
 	
-	@ManyToMany (mappedBy = "userOfTerrain")
-	Set<Terrain> terrainOfUser;
+	/*@ManyToMany (mappedBy = "userOfTerrain")
+	Set<Terrain> terrainOfUser;*/
 
 	public User() {}
 
-	public User(String nom, String prenom, String mail, String pw, String tel, int age,
-			Set<Terrain> terrainOfUser) {
+	public User(String nom, String prenom, String mail, String pw, String tel, int age) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -35,7 +34,6 @@ public class User {
 		this.pw = pw;
 		this.tel = tel;
 		this.age = age;
-		this.terrainOfUser = terrainOfUser;
 	}
 
 
@@ -124,21 +122,12 @@ public class User {
 
 
 
-	public Set<Terrain> getTerrainOfUser() {
-		return terrainOfUser;
-	}
-
-
-
-	public void setTerrainOfUser(Set<Terrain> terrainOfUser) {
-		this.terrainOfUser = terrainOfUser;
-	}
 
 
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", pw=" + pw + ", tel="
-				+ tel + ", age=" + age + ", terrainOfUser=" + terrainOfUser + "]";
+				+ tel + ", age=" + age + "]";
 	}
 }

@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import fr.solutec.potagerb.dao.TerrainRepository;
 import fr.solutec.potagerb.dao.TypeTerrainRepository;
 import fr.solutec.potagerb.dao.UserRepository;
+import fr.solutec.potagerb.dao.UserTerrainRepository;
 import fr.solutec.potagerb.entities.*;
 
 
@@ -25,6 +26,9 @@ public class Dev15potagerBApplication implements CommandLineRunner{
 	@Autowired
 	private TypeTerrainRepository typeTRep;
 	
+	@Autowired
+	private UserTerrainRepository userTerrainRepos;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(Dev15potagerBApplication.class, args);
 		
@@ -34,17 +38,9 @@ public class Dev15potagerBApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		TypeTerrain typeT1 = new TypeTerrain("Jardin");
-		typeTRep.save(typeT1);
-		
-		Terrain t1 = new Terrain();
-		Terrain t2 = new Terrain();
-		
-		Set<Terrain> terrains = new HashSet<>();
-		
-		User u1 = new User("test1", "test1", "test1", "test1", "01", 1, terrains);
-		User u2 = new User("test2", "test2", "test2", "test2", "02", 2, terrains);
-		User u3 = new User("test3", "test3", "test3", "test3", "03", 3, terrains);
+		User u1 = new User("test1", "test1", "test1", "test1", "01", 1);
+		User u2 = new User("test2", "test2", "test2", "test2", "02", 2);
+		User u3 = new User("test3", "test3", "test3", "test3", "03", 3);
 		userRep.save(u1);
 		userRep.save(u2);
 		userRep.save(u3);
@@ -52,17 +48,28 @@ public class Dev15potagerBApplication implements CommandLineRunner{
 		@SuppressWarnings("deprecation")
 		Time time = new Time(0,0,1);
 		
-		Set<User> usersA = new HashSet<>();
-		usersA.add(u1);
-		usersA.add(u2);
+		TypeTerrain typeT1 = new TypeTerrain("Jardin");
+		typeTRep.save(typeT1);
 		
-		Set<User> usersB = new HashSet<>();
-		usersB.add(u1);
-		usersB.add(u3);
 		
-		t1 = new Terrain("terrain1", "1.1", "ad1", "Paris", 14.5, time, time, 10, "description", usersA, typeT1, u1);
+		Terrain t1 = new Terrain("terrain1", "1.1", "ad1", "Paris", 14.5, time, time, 10, "description", typeT1, u1);
+		Terrain t2 = new Terrain("terrain2", "2.2", "ad2", "Paris", 14.5, time, time, 5, "description", typeT1, u3);
 		terrRep.save(t1);
-		t2 = new Terrain("terrain2", "2.2", "ad2", "Paris", 14.5, time, time, 5, "description", usersB, typeT1, u3);
 		terrRep.save(t2);
+		
+		
+		UserTerrain usert1 = new UserTerrain(u1, t1); 
+		UserTerrain usert2 = new UserTerrain(u2, t1); 
+		UserTerrain usert3 = new UserTerrain(u3, t2); 
+		UserTerrain usert4 = new UserTerrain(u2, t2); 
+		
+		userTerrainRepos.save(usert1);
+		userTerrainRepos.save(usert2);
+		userTerrainRepos.save(usert3);
+		userTerrainRepos.save(usert4);
+		
+		
+		
+		
 	}
 }
