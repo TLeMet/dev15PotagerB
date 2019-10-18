@@ -24,7 +24,7 @@ public class User {
 	@ManyToMany (mappedBy = "userOfTerrain")
 	Set<Terrain> terrainOfUser;
 
-	
+	public User() {}
 
 	public User(String nom, String prenom, String mail, String pw, String tel, int age,
 			Set<Terrain> terrainOfUser) {

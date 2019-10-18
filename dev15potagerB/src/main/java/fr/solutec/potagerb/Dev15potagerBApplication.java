@@ -41,11 +41,10 @@ public class Dev15potagerBApplication implements CommandLineRunner{
 		Terrain t2 = new Terrain();
 		
 		Set<Terrain> terrains = new HashSet<>();
-		terrains.add(t1);
 		
 		User u1 = new User("test1", "test1", "test1", "test1", "01", 1, terrains);
 		User u2 = new User("test2", "test2", "test2", "test2", "02", 2, terrains);
-		User u3 = new User("test3", "test3", "test3", "test2", "03", 3, terrains);
+		User u3 = new User("test3", "test3", "test3", "test3", "03", 3, terrains);
 		userRep.save(u1);
 		userRep.save(u2);
 		userRep.save(u3);
@@ -59,12 +58,11 @@ public class Dev15potagerBApplication implements CommandLineRunner{
 		
 		Set<User> usersB = new HashSet<>();
 		usersB.add(u1);
-		usersB.add(u2);
 		usersB.add(u3);
 		
-		t1 = new Terrain("terrain1", "1.1", "ad1", "Paris", 14.5, time, time, 10, usersA, typeT1, u1);
+		t1 = new Terrain("terrain1", "1.1", "ad1", "Paris", 14.5, time, time, 10, "description", usersA, typeT1, u1);
 		terrRep.save(t1);
-		t2 = new Terrain("terrain2", "2.2", "ad2", "Paris", 14.5, time, time, 5, usersB, typeT1, u3);
+		t2 = new Terrain("terrain2", "2.2", "ad2", "Paris", 14.5, time, time, 5, "description", usersB, typeT1, u3);
 		terrRep.save(t2);
 	}
 }

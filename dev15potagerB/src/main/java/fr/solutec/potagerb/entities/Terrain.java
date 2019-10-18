@@ -30,6 +30,8 @@ public class Terrain {
 	private Time hFermeture;
 	@Column(nullable=true)
 	private int maxUser;
+	private String description;
+	//Photo!
 	
 	@ManyToMany @JoinTable(
 			name = "User_Terrain", 
@@ -46,8 +48,10 @@ public class Terrain {
 	public Terrain() {}
 
 	public Terrain(String nom, String gps, String adresse, String ville, double surface, Time hOuverture,
-			Time hFermeture, int maxUser, Set<User> userOfTerrain, TypeTerrain type, User proprietaire) {
+			Time hFermeture, int maxUser, String description, Set<User> userOfTerrain, TypeTerrain type,
+			User proprietaire) {
 		super();
+
 		this.nom = nom;
 		this.gps = gps;
 		this.adresse = adresse;
@@ -56,6 +60,7 @@ public class Terrain {
 		this.hOuverture = hOuverture;
 		this.hFermeture = hFermeture;
 		this.maxUser = maxUser;
+		this.description = description;
 		this.userOfTerrain = userOfTerrain;
 		this.type = type;
 		this.proprietaire = proprietaire;
@@ -133,6 +138,14 @@ public class Terrain {
 		this.maxUser = maxUser;
 	}
 
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public Set<User> getUserOfTerrain() {
 		return userOfTerrain;
 	}
@@ -157,12 +170,5 @@ public class Terrain {
 		this.proprietaire = proprietaire;
 	}
 
-	@Override
-	public String toString() {
-		return "Terrain [id=" + id + ", nom=" + nom + ", gps=" + gps + ", adresse=" + adresse + ", ville=" + ville
-				+ ", surface=" + surface + ", hOuverture=" + hOuverture + ", hFermeture=" + hFermeture + ", maxUser="
-				+ maxUser + ", userOfTerrain=" + userOfTerrain + ", type=" + type + ", proprietaire=" + proprietaire
-				+ "]";
-	}
-
+	
 }
