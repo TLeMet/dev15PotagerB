@@ -24,8 +24,8 @@ public interface TerrainRepository extends CrudRepository<Terrain, Long>{
 	public Optional<Terrain> findByNomIgnoreCase(String nom);
 	
 	
-	/* @Query("select t.adresse from Terrain t where t.ville like ?1")
-	public Optional<Terrain> aaa(String a); */
+	@Query("select t.adresse from Terrain t where t.ville like ?1")
+	public Optional<Terrain> aaa(String a);
 	
 	/* @Query("select Count(idUser) as tot from User_Terrain ut where ut.idTerrain = ?1")
 	public int findCountUser(Long id); */

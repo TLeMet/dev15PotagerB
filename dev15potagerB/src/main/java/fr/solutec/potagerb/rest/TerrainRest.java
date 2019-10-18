@@ -65,11 +65,11 @@ public class TerrainRest {
 		return terrRep.findByNomIgnoreCase(nom);
 	}
 	
-	/* // Recherche terrain par nom ou ville contenant lettre
+	// Recherche terrain par nom ou ville contenant lettre
 	@RequestMapping(value="/terrains/nomville/%entree%", method= RequestMethod.GET)
 	public Optional<Terrain> getTerrainByNameOrVille(@PathVariable String entree){
 		return terrRep.aaa(entree); 
-	} */
+	} 
 	
 	
 	/* // Nombre de User par terrain
