@@ -37,8 +37,8 @@ public class Dev15potagerBApplication implements CommandLineRunner{
 		TypeTerrain typeT1 = new TypeTerrain("Jardin");
 		typeTRep.save(typeT1);
 		
-		User u1 = new User("test1", "test1", "test1", "test1", "01", 1);
-		User u2 = new User("test2", "test2", "test2", "test2", "02", 2);
+		User u1 = new User("test1nom", "test1prenom", "test1mail", "test1pw", "01", 1);
+		User u2 = new User("test2nom", "test2prenom", "test2mail", "test2pw", "02", 2);
 		userRep.save(u1);
 		userRep.save(u2);
 		
