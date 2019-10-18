@@ -24,43 +24,57 @@ public class TerrainRest {
 	}
 
 	@Autowired
-	private TerrainRepository terrResp;
+	private TerrainRepository terrRep;
 	
 	// Affichage de tous les terrains
 	@RequestMapping(value="/terrains", method= RequestMethod.GET)
 	public List<Terrain> getAllTerrains(){
-		return (List<Terrain>) terrResp.findAll();
+		return (List<Terrain>) terrRep.findAll();
 	}
 	
 	// Recherche d'un terrain par id terrain
 	@RequestMapping(value="/terrains/{id}", method= RequestMethod.GET)
 	public Optional<Terrain> getTerrain(@PathVariable Long id){
-		return terrResp.findById(id);
+		return terrRep.findById(id);
 	}
 	
+<<<<<<< HEAD
+	/*// Recherche d'un terrain par id propriétaire
+	@RequestMapping(value="/terrainsprop/{p}", method = RequestMethod.GET)
+	public Optional<Terrain> getTerrainByIdProprio(@PathVariable User p){
+		return terrRep.findByIdProp(p); 
+=======
 	// Recherche d'un terrain par id propriétaire
 	@RequestMapping(value="/terrainsprop/{id}", method = RequestMethod.GET)
 	public Optional<Terrain> getTerrainByIdProprio(@PathVariable Long id){
 		return terrResp.findByProprietaireId(id); 
+>>>>>>> branch 'master' of https://github.com/TLeMet/dev15potagerB.git
 	}
 	
 
 	// Recherche d'un terrain par type
+<<<<<<< HEAD
+	@RequestMapping(value="/terrains/type/{idType}", method= RequestMethod.GET)
+	public Optional<Terrain> getTerrainByType(@PathVariable Long idType){
+		return terrRep.findByIdType(idType); 
+	}*/
+=======
 	@RequestMapping(value="/terrains/type/{id}", method= RequestMethod.GET)
 	public List<Terrain> getTerrainByType(@PathVariable Long id){
 		return terrResp.findByTypeId(id);
 	} 
+>>>>>>> branch 'master' of https://github.com/TLeMet/dev15potagerB.git
 	
 	// Recherche d'un terrain par surface min
 	@RequestMapping(value="/terrains/surface/{surf}", method= RequestMethod.GET)
 	public Optional<Terrain> getTerrainBySurfaceMin(@PathVariable double surf){
-		return terrResp.findBySurfaceGreaterThanEqual(surf);
+		return terrRep.findBySurfaceGreaterThanEqual(surf);
 	}
 	
 	// Recherche terrain par nom
 	@RequestMapping(value="/terrains/nom/{nom}")
 	public Optional<Terrain> getTerrainByName(@PathVariable String nom){
-		return terrResp.findByNom(nom);
+		return terrRep.findByNom(nom);
 	}
 	
 	
@@ -68,7 +82,7 @@ public class TerrainRest {
 	// Insertion terrain
 	@RequestMapping(value="/terrains", method= RequestMethod.POST)
 	public Terrain saveTerrain(@RequestBody Terrain t) {
-		return terrResp.save(t);
+		return terrRep.save(t);
 	}
 	
 	
