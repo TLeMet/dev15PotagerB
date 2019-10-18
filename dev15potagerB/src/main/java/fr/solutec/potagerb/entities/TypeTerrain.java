@@ -13,13 +13,6 @@ public class TypeTerrain {
 	private String libelle;
 	
 	
-	
-	
-	public TypeTerrain() {
-		super();
-	}
-
-
 	public TypeTerrain(String libelle) {
 		super();
 		this.libelle = libelle;
