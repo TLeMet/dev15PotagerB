@@ -4,7 +4,7 @@ package fr.solutec.potagerb.dao;
 import java.util.List;
 import java.util.Optional;
 
-
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import fr.solutec.potagerb.entities.Terrain;
@@ -21,5 +21,12 @@ public interface TerrainRepository extends CrudRepository<Terrain, Long>{
 	
 	public Optional<Terrain> findBySurfaceGreaterThanEqual(double surface);
 	
-	public Optional<Terrain> findByNom(String nom);
+	public Optional<Terrain> findByNomIgnoreCase(String nom);
+	
+	
+	/* @Query("select t.adresse from Terrain t where t.ville like ?1")
+	public Optional<Terrain> aaa(String a); */
+	
+	/* @Query("select Count(idUser) as tot from User_Terrain ut where ut.idTerrain = ?1")
+	public int findCountUser(Long id); */
 }
