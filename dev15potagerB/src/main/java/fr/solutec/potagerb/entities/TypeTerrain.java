@@ -12,6 +12,7 @@ public class TypeTerrain {
 	private Long id;
 	private String libelle;
 	
+	public TypeTerrain() {}
 	
 	public TypeTerrain(String libelle) {
 		super();
