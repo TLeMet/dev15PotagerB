@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.solutec.potagerb.dao.TacheRepository;
 import fr.solutec.potagerb.entities.Tache;
 import fr.solutec.potagerb.entities.Terrain;
+import fr.solutec.potagerb.entities.User;
 
 @RestController
 @CrossOrigin("*")
@@ -28,8 +29,14 @@ public class TacheRest {
 	}
 
 	// Recherche des taches par id terrain
-	@RequestMapping(value = "/taches/{id}", method = RequestMethod.GET)
-	public Optional<Tache> getTerrain(@PathVariable Long id) {
-		return tacheRep.findByIdTerrain(id);
+	@RequestMapping(value = "/taches/terrain/{id}", method = RequestMethod.GET)
+	public Optional<Tache> getTachesOfTerrain(@PathVariable Long idTerrain) {
+		return tacheRep.findByTerrainId(idTerrain);
+	}
+
+	// Recherche des taches par id user
+	@RequestMapping(value = "/taches/user/{id}", method = RequestMethod.GET)
+	public Optional<Tache> getTachesOfUser(@PathVariable Long idUser) {
+		return tacheRep.findByUserDoneId(idUser);
 	}
 }
