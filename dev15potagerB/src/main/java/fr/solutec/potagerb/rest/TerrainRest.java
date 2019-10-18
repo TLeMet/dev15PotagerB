@@ -38,32 +38,20 @@ public class TerrainRest {
 		return terrRep.findById(id);
 	}
 	
-<<<<<<< HEAD
-	/*// Recherche d'un terrain par id propriétaire
-	@RequestMapping(value="/terrainsprop/{p}", method = RequestMethod.GET)
-	public Optional<Terrain> getTerrainByIdProprio(@PathVariable User p){
-		return terrRep.findByIdProp(p); 
-=======
 	// Recherche d'un terrain par id propriétaire
 	@RequestMapping(value="/terrainsprop/{id}", method = RequestMethod.GET)
 	public Optional<Terrain> getTerrainByIdProprio(@PathVariable Long id){
-		return terrResp.findByProprietaireId(id); 
->>>>>>> branch 'master' of https://github.com/TLeMet/dev15potagerB.git
+		return terrRep.findByProprietaireId(id); 
+
 	}
 	
 
 	// Recherche d'un terrain par type
-<<<<<<< HEAD
-	@RequestMapping(value="/terrains/type/{idType}", method= RequestMethod.GET)
-	public Optional<Terrain> getTerrainByType(@PathVariable Long idType){
-		return terrRep.findByIdType(idType); 
-	}*/
-=======
 	@RequestMapping(value="/terrains/type/{id}", method= RequestMethod.GET)
 	public List<Terrain> getTerrainByType(@PathVariable Long id){
-		return terrResp.findByTypeId(id);
+		return terrRep.findByTypeId(id);
 	} 
->>>>>>> branch 'master' of https://github.com/TLeMet/dev15potagerB.git
+
 	
 	// Recherche d'un terrain par surface min
 	@RequestMapping(value="/terrains/surface/{surf}", method= RequestMethod.GET)
