@@ -13,11 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.solutec.potagerb.dao.TerrainRepository;
 import fr.solutec.potagerb.entities.Terrain;
-import fr.solutec.potagerb.entities.User;
+
 
 @RestController
 @CrossOrigin("*")
 public class TerrainRest {
+	
+	class tyTerrain{
+		
+	}
 
 	@Autowired
 	private TerrainRepository terrRep;
@@ -34,17 +38,32 @@ public class TerrainRest {
 		return terrRep.findById(id);
 	}
 	
+<<<<<<< HEAD
 	/*// Recherche d'un terrain par id propriétaire
 	@RequestMapping(value="/terrainsprop/{p}", method = RequestMethod.GET)
 	public Optional<Terrain> getTerrainByIdProprio(@PathVariable User p){
 		return terrRep.findByIdProp(p); 
+=======
+	// Recherche d'un terrain par id propriétaire
+	@RequestMapping(value="/terrainsprop/{id}", method = RequestMethod.GET)
+	public Optional<Terrain> getTerrainByIdProprio(@PathVariable Long id){
+		return terrResp.findByProprietaireId(id); 
+>>>>>>> branch 'master' of https://github.com/TLeMet/dev15potagerB.git
 	}
 	
+
 	// Recherche d'un terrain par type
+<<<<<<< HEAD
 	@RequestMapping(value="/terrains/type/{idType}", method= RequestMethod.GET)
 	public Optional<Terrain> getTerrainByType(@PathVariable Long idType){
 		return terrRep.findByIdType(idType); 
 	}*/
+=======
+	@RequestMapping(value="/terrains/type/{id}", method= RequestMethod.GET)
+	public List<Terrain> getTerrainByType(@PathVariable Long id){
+		return terrResp.findByTypeId(id);
+	} 
+>>>>>>> branch 'master' of https://github.com/TLeMet/dev15potagerB.git
 	
 	// Recherche d'un terrain par surface min
 	@RequestMapping(value="/terrains/surface/{surf}", method= RequestMethod.GET)
