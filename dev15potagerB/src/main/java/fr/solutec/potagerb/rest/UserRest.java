@@ -29,7 +29,7 @@ public class UserRest {
 	}
 	
 	// Recherche user par mail
-	@RequestMapping(value="/users/{mail}", method=RequestMethod.GET)
+	@RequestMapping(value="/users/mail/{mail}", method=RequestMethod.GET)
 	public List<User> getUserbyMail(@PathVariable String mail) {
 		return userRep.findByMail(mail); 
 	}

@@ -24,24 +24,27 @@ public class User {
 	@ManyToMany (mappedBy = "userOfTerrain")
 	Set<Terrain> terrainOfUser;
 
-	public User(String nom, String prenom, String mail, String pw, String tel, int age) {
+	public User() {}
+
+	public User(String nom, String prenom, String mail, String pw, String tel, int age,
+			Set<Terrain> terrainOfUser) {
 		super();
-		
 		this.nom = nom;
 		this.prenom = prenom;
 		this.mail = mail;
 		this.pw = pw;
 		this.tel = tel;
 		this.age = age;
+		this.terrainOfUser = terrainOfUser;
 	}
 
-	public User() {
-		super();
-	}
+
 
 	public Long getId() {
 		return id;
 	}
+
+
 
 	public void setId(Long id) {
 		this.id = id;
@@ -53,62 +56,89 @@ public class User {
 		return nom;
 	}
 
+
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
+
 
 	public String getPrenom() {
 		return prenom;
 	}
 
+
+
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+
+
 
 	public String getMail() {
 		return mail;
 	}
 
+
+
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
+
+
 
 	public String getPw() {
 		return pw;
 	}
 
+
+
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
+
+
 
 	public String getTel() {
 		return tel;
 	}
 
+
+
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
+
+
 
 	public int getAge() {
 		return age;
 	}
 
+
+
 	public void setAge(int age) {
 		this.age = age;
 	}
 
-	/*public Terrain getTerrain() {
-		return terrain;
+
+
+	public Set<Terrain> getTerrainOfUser() {
+		return terrainOfUser;
 	}
 
-	public void setTerrain(Terrain terrain) {
-		this.terrain = terrain;
-	}*/
+
+
+	public void setTerrainOfUser(Set<Terrain> terrainOfUser) {
+		this.terrainOfUser = terrainOfUser;
+	}
+
+
 
 	@Override
 	public String toString() {
-		return "User [id=" + id +  ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail
-				+ ", pw=" + pw + ", tel=" + tel + ", age=" + age;// + ", terrain=" + terrain + "]";
+		return "User [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", pw=" + pw + ", tel="
+				+ tel + ", age=" + age + ", terrainOfUser=" + terrainOfUser + "]";
 	}
-	
 }
