@@ -9,10 +9,13 @@ public class User {
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	private String pseudo;
+	@Column(nullable= false)
 	private String nom;
+	@Column(nullable= false)
 	private String prenom;
+	@Column(nullable= false, unique = true)
 	private String mail;
+	@Column(nullable= false)
 	private String pw;
 	private String tel;
 	private int age;
@@ -20,9 +23,9 @@ public class User {
 	@ManyToMany (mappedBy = "userOfTerrain")
 	Set<Terrain> terrainOfUser;
 
-	public User(String pseudo, String nom, String prenom, String mail, String pw, String tel, int age) {
+	public User(String nom, String prenom, String mail, String pw, String tel, int age) {
 		super();
-		this.pseudo = pseudo;
+		
 		this.nom = nom;
 		this.prenom = prenom;
 		this.mail = mail;
@@ -43,13 +46,7 @@ public class User {
 		this.id = id;
 	}
 
-	public String getPseudo() {
-		return pseudo;
-	}
 
-	public void setPseudo(String pseudo) {
-		this.pseudo = pseudo;
-	}
 
 	public String getNom() {
 		return nom;
@@ -109,7 +106,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail
+		return "User [id=" + id +  ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail
 				+ ", pw=" + pw + ", tel=" + tel + ", age=" + age;// + ", terrain=" + terrain + "]";
 	}
 	
