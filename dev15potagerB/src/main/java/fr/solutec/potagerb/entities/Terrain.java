@@ -40,10 +40,9 @@ public class Terrain {
 	
 	public Terrain() {}
 
-	public Terrain(Long id, String nom, String gps, String adresse, String ville, double surface, Time hOuverture,
+	public Terrain(String nom, String gps, String adresse, String ville, double surface, Time hOuverture,
 			Time hFermeture, int maxUser, Set<User> userOfTerrain, TypeTerrain type, User proprietaire) {
 		super();
-		this.id = id;
 		this.nom = nom;
 		this.gps = gps;
 		this.adresse = adresse;
