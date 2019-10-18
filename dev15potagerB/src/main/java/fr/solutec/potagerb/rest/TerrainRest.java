@@ -38,13 +38,14 @@ public class TerrainRest {
 		return terrResp.findById(id);
 	}
 	
-	/* // Recherche d'un terrain par id propriétaire
+	/*// Recherche d'un terrain par id propriétaire
 	@RequestMapping(value="/terrainsprop/{p}", method = RequestMethod.GET)
 	public Optional<Terrain> getTerrainByIdProprio(@PathVariable User p){
 		return terrResp.findByIdProp(p); 
 	} */
 	
-	 // Recherche d'un terrain par type
+
+	// Recherche d'un terrain par type
 	@RequestMapping(value="/terrains/type/{id}", method= RequestMethod.GET)
 	public List<Terrain> getTerrainByType(@PathVariable Long id){
 		return terrResp.findByTypeId(id);
