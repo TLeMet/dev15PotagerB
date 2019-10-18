@@ -18,6 +18,10 @@ import fr.solutec.potagerb.entities.User;
 @RestController
 @CrossOrigin("*")
 public class TerrainRest {
+	
+	class tyTerrain{
+		
+	}
 
 	@Autowired
 	private TerrainRepository terrResp;
@@ -40,11 +44,11 @@ public class TerrainRest {
 		return terrResp.findByIdProp(p); 
 	} */
 	
-	/* // Recherche d'un terrain par type
-	@RequestMapping(value="/terrains/type/{idType}", method= RequestMethod.GET)
-	public Optional<Terrain> getTerrainByType(@PathVariable Long idType){
-		return terrResp.findByIdType(idType); 
-	} */
+	 // Recherche d'un terrain par type
+	@RequestMapping(value="/terrains/type/{id}", method= RequestMethod.GET)
+	public List<Terrain> getTerrainByType(@PathVariable Long id){
+		return terrResp.findByTypeId(id);
+	} 
 	
 	// Recherche d'un terrain par surface min
 	@RequestMapping(value="/terrains/surface/{surf}", method= RequestMethod.GET)
