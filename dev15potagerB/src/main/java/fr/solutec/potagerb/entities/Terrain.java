@@ -3,6 +3,7 @@ package fr.solutec.potagerb.entities;
 import java.sql.Time;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,13 +18,17 @@ public class Terrain {
 	
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	@Column(nullable = false)
 	private String nom;
 	private String gps;
 	private String adresse;
+	@Column(nullable= false)
 	private String ville;
+	@Column(nullable=false)
 	private double surface;
 	private Time hOuverture;
 	private Time hFermeture;
+	@Column(nullable=true)
 	private int maxUser;
 	
 	@ManyToMany @JoinTable(

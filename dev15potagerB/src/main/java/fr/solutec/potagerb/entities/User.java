@@ -18,6 +18,7 @@ public class User {
 	@Column(nullable= false)
 	private String pw;
 	private String tel;
+	@Column(nullable = true)
 	private int age;
 	
 	@ManyToMany (mappedBy = "userOfTerrain")
