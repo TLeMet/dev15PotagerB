@@ -23,15 +23,10 @@ public interface TerrainRepository extends CrudRepository<Terrain, Long>{
 	public Optional<Terrain> findBySurfaceGreaterThanEqual(double surface);
 	
 	public Optional<Terrain> findByNomIgnoreCase(String nom);
+
 	
-	/* // Marche OK
-	@Query("select t from Terrain t where upper(t.nom) like upper('%pa%') or upper(t.ville) like upper('%pa%')")
-	public List<Terrain> aaa(); */
-	
-	// @Query("select t from Terrain t where upper(t.nom) like upper(%?1%) or upper(t.ville) like upper(%?1%)")
-	// public Optional<Terrain> aaa(String input);
-	
-	
-	
+	 @Query("select t from Terrain t where upper(t.nom) like upper(?1) or upper(t.ville) like upper(?1)")
+	public List<Terrain> SearchByVilleAndNom(String input);
+		
 
 }
