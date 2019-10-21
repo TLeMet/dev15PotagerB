@@ -70,7 +70,7 @@ public class Dev15potagerBApplication implements CommandLineRunner{
 		
 		String message = "Bonjour, j'aimerais ramasser vos concombres";
 		
-		UserTerrain usert1 = new UserTerrain(u1, t1, false, message, date); 
+		UserTerrain usert1 = new UserTerrain(u1, t1, true, message, date); 
 		UserTerrain usert2 = new UserTerrain(u2, t1, false, message, date); 
 		UserTerrain usert3 = new UserTerrain(u3, t2, false, message, date); 
 		UserTerrain usert4 = new UserTerrain(u2, t2, false, message, date); 

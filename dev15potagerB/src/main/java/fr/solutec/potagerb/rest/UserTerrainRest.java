@@ -1,5 +1,6 @@
 package fr.solutec.potagerb.rest;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -62,5 +63,10 @@ public class UserTerrainRest {
 		return (List<UserTerrain>) userTerrRep.findByUserId(id);
 	}
 	
-	// Liste 
+	// Liste des demandes associées à un terrain 
+	@RequestMapping(value="/requestofterrain/{id}", method= RequestMethod.GET)
+	public List<Object> getRequestOfTerrain(@PathVariable Long id){
+		return userTerrRep.requestOfTerrain(id);
+	}
+	
 }
