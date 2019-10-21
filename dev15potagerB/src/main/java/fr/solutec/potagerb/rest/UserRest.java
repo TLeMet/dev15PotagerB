@@ -16,6 +16,13 @@ public class UserRest {
 	@Autowired
 	private UserRepository userRep;
 	
+	//Login User
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public boolean getByLoginPass(@RequestBody String mail, String password){
+		Optional<User> u = userRep.findByMail(mail);
+		return (u.get().getPw().equals(password));
+	}
+	
 	// Affichage de tous les users
 	@RequestMapping(value="/users", method=RequestMethod.GET)
 	public List<User> getAllUsers(){
@@ -30,7 +37,7 @@ public class UserRest {
 	
 	// Recherche user par mail
 	@RequestMapping(value="/users/mail/{mail}", method=RequestMethod.GET)
-	public List<User> getUserbyMail(@PathVariable String mail) {
+	public Optional<User> getUserbyMail(@PathVariable String mail) {
 		return userRep.findByMail(mail); 
 	}
 	
