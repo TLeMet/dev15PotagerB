@@ -90,4 +90,11 @@ public class TerrainRest {
 		return true;
 	}
 	
+	// Modification d'un terrain
+	@RequestMapping(value="/terrains/{id}", method= RequestMethod.PUT)
+	public Terrain modifTerrain(@PathVariable Long id, @RequestBody Terrain t) {
+		t.setId(id);
+		return terrRep.save(t);
+	}
+	
 }
