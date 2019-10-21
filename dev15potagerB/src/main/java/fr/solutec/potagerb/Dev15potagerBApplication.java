@@ -58,10 +58,10 @@ public class Dev15potagerBApplication implements CommandLineRunner{
 		terrRep.save(t2);
 		
 		
-		UserTerrain usert1 = new UserTerrain(u1, t1); 
-		UserTerrain usert2 = new UserTerrain(u2, t1); 
-		UserTerrain usert3 = new UserTerrain(u3, t2); 
-		UserTerrain usert4 = new UserTerrain(u2, t2); 
+		UserTerrain usert1 = new UserTerrain(u1, t1, false); 
+		UserTerrain usert2 = new UserTerrain(u2, t1, false); 
+		UserTerrain usert3 = new UserTerrain(u3, t2, false); 
+		UserTerrain usert4 = new UserTerrain(u2, t2, false); 
 		
 		userTerrainRepos.save(usert1);
 		userTerrainRepos.save(usert2);
