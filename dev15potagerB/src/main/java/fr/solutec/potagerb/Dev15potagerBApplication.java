@@ -1,5 +1,6 @@
 package fr.solutec.potagerb;
 
+import java.sql.Date;
 import java.sql.Time;
 import java.util.HashSet;
 import java.util.Set;
@@ -58,6 +59,8 @@ public class Dev15potagerBApplication implements CommandLineRunner{
 		@SuppressWarnings("deprecation")
 		Time time = new Time(0,0,1);
 		
+		@SuppressWarnings("deprecation")
+		Date date = new Date(2019,01,01);
 		
 		
 		Terrain t1 = new Terrain("terrain1", "1.1", "ad1", "Paris", 14.5, time, time, 10, "description", typeT1, u1);
@@ -65,25 +68,26 @@ public class Dev15potagerBApplication implements CommandLineRunner{
 		terrRep.save(t1);
 		terrRep.save(t2);
 		
+		String message = "Bonjour, j'aimerais ramasser vos concombres";
 		
-		UserTerrain usert1 = new UserTerrain(u1, t1, false); 
-		UserTerrain usert2 = new UserTerrain(u2, t1, false); 
-		UserTerrain usert3 = new UserTerrain(u3, t2, false); 
-		UserTerrain usert4 = new UserTerrain(u2, t2, false); 
+		UserTerrain usert1 = new UserTerrain(u1, t1, false, message, date); 
+		UserTerrain usert2 = new UserTerrain(u2, t1, false, message, date); 
+		UserTerrain usert3 = new UserTerrain(u3, t2, false, message, date); 
+		UserTerrain usert4 = new UserTerrain(u2, t2, false, message, date); 
 		
 		userTerrainRepos.save(usert1);
 		userTerrainRepos.save(usert2);
 		userTerrainRepos.save(usert3);
 		userTerrainRepos.save(usert4);
 		
+		/*
 		Admin ad1 = new Admin("vfdhygv", "hgdcfj");
 		Admin ad2 = new Admin("vfdhygv", "hgdcfj");
 		Admin ad3 = new Admin("vfdhygv", "hgdcfj");
 		adrepo.save(ad1);
 		adrepo.save(ad2);
 		adrepo.save(ad3);
-		
-		
-		
+		*/
+
 	}
 }
