@@ -48,17 +48,23 @@ public class UserTerrainRest {
 	
 	
 	// Suppression des users d'un terrain via l'id terrain
-	@RequestMapping(value="/userofterrain/{id}", method= RequestMethod.DELETE)
+	@RequestMapping(value="/del.usersofterrain/{id}", method= RequestMethod.DELETE)
 	public boolean supprTerrain(@PathVariable Long id) {
 		userTerrRep.supprTerrain(id);
 		return true;
 	}
 	
 	// Compter nb utilisateurs d'un terrain par l'id terrain
-	@RequestMapping(value="/cntuserofterrain/{id}", method= RequestMethod.GET)
+	@RequestMapping(value="/cnt.userofterrain/{id}", method= RequestMethod.GET)
 	public int countUserOfTerrain(@PathVariable Long id) {
 		int nbUser = userTerrRep.countUserOfTerrain(id);
 		return nbUser;
 	}
 	
+	// Supprimer un User d'un terrain 
+	@RequestMapping(value="/del.userofterrain/{idUser}/{idTerrain}", method= RequestMethod.DELETE)
+	public boolean supprUserOfTerrain(@PathVariable Long idUser, @PathVariable Long idTerrain) {
+		userTerrRep.supprUserOfTerrain(idUser, idTerrain);
+		return true;
+	}
 }
