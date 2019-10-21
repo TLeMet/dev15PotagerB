@@ -29,14 +29,17 @@ public class UserTerrain implements Serializable{
 	@ManyToOne
 	private Terrain terrain;
 	
+	private boolean etat;
+	
 	public UserTerrain() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserTerrain(User user, Terrain terrain) {
+	public UserTerrain(User user, Terrain terrain, boolean etat) {
 		super();
 		this.user = user;
 		this.terrain = terrain;
+		this.etat = etat;
 	}
 
 	public User getUser() {
@@ -47,9 +50,6 @@ public class UserTerrain implements Serializable{
 		this.user = user;
 	}
 
-	
-	
-
 	public Terrain getTerrain() {
 		return terrain;
 	}
@@ -58,10 +58,17 @@ public class UserTerrain implements Serializable{
 		this.terrain = terrain;
 	}
 
+	public boolean isEtat() {
+		return etat;
+	}
+
+	public void setEtat(boolean etat) {
+		this.etat = etat;
+	}
+
 	@Override
 	public String toString() {
-		return "UserTerrain [user=" + user.toString() + ", terrain=" + terrain.toString() + "]";
+		return "UserTerrain [user=" + user + ", terrain=" + terrain + ", etat=" + etat + "]";
 	}
-	
 	
 }
