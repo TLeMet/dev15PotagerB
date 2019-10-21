@@ -66,17 +66,12 @@ public class TerrainRest {
 	}
 	
 	/* // Recherche terrain par nom ou ville contenant lettre
-	@RequestMapping(value="/terrains/nomville/%entree%", method= RequestMethod.GET)
-	public Optional<Terrain> getTerrainByNameOrVille(@PathVariable String entree){
-		return terrRep.aaa(entree); 
+	@RequestMapping(value="/terrains/nomville/%input%", method= RequestMethod.GET)
+	public Optional<Terrain> getTerrainByNameOrVille(@PathVariable String input){
+		return terrRep.aaa(input); 
 	} */
 	
 	
-	/* // Nombre de User par terrain
-	@RequestMapping(value="/terrain/users/{id}", method= RequestMethod.GET)
-	public int getCountUserByTerrain(@PathVariable Long id){
-		return terrRep.findCountUser(id); 
-	} */
 	
 	
 	// Insertion terrain
@@ -88,6 +83,7 @@ public class TerrainRest {
 	// Supression d'un terrain
 	@RequestMapping(value="/terrains/{id}", method= RequestMethod.DELETE)
 	public boolean supprTerrain(@PathVariable Long id) {
+		
 		terrRep.deleteById(id);
 		return true;
 	}
