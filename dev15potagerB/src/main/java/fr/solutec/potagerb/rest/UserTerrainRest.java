@@ -58,5 +58,8 @@ public class UserTerrainRest {
 		userTerrRep.supprTerrain(id);
 		return true;
 	}
+	
+	// Compter nb utilisateurs d'un terrain par l'id terrain
+	
 
 }
