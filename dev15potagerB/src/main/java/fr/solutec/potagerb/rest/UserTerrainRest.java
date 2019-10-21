@@ -32,11 +32,6 @@ public class UserTerrainRest {
 		return (List<UserTerrain>) userTerrRep.findAll();
 	}
 		
-	// Recherche d'un terrain par id terrain
-	@RequestMapping(value="/userterrains/{id}", method= RequestMethod.GET)
-	public Optional<UserTerrain> getUserTerrain(@PathVariable Long id){
-		return userTerrRep.findById(id);
-	}
 	
 	// Recherche des utilisateurs associés à un terrain via l'id terrain
 	@RequestMapping(value="/userofterrain/{id}", method= RequestMethod.GET)
@@ -60,6 +55,10 @@ public class UserTerrainRest {
 	}
 	
 	// Compter nb utilisateurs d'un terrain par l'id terrain
+	@RequestMapping(value="/cntuserofterrain/{id}", method= RequestMethod.GET)
+	public int countUserOfTerrain(@PathVariable Long id) {
+		int nbUser = userTerrRep.countUserOfTerrain(id);
+		return nbUser;
+	}
 	
-
 }
