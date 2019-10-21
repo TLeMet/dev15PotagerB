@@ -85,6 +85,11 @@ public class TerrainRest {
 		return terrRep.save(t);
 	}
 	
-	
+	// Supression d'un terrain
+	@RequestMapping(value="/terrains/{id}", method= RequestMethod.DELETE)
+	public boolean supprTerrain(@PathVariable Long id) {
+		terrRep.deleteById(id);
+		return true;
+	}
 	
 }
