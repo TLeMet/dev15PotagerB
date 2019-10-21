@@ -9,4 +9,6 @@ import fr.solutec.potagerb.entities.User;
 
 public interface UserRepository extends CrudRepository<User, Long>{
 	public Optional<User> findByMail(String mail);
+	
+	
 }

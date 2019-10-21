@@ -44,7 +44,7 @@ public class TerrainRest {
 	
 	// Recherche d'un terrain par id propriétaire
 	@RequestMapping(value="/terrainsprop/{id}", method = RequestMethod.GET)
-	public Optional<Terrain> getTerrainByIdProprio(@PathVariable Long id){
+	public List<Terrain> getTerrainByIdProprio(@PathVariable Long id){
 		return terrRep.findByProprietaireId(id); 
 
 	}

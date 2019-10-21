@@ -18,6 +18,8 @@ public interface UserTerrainRepository extends CrudRepository<UserTerrain, Long>
 	
 	public List<UserTerrain> findByTerrainId(Long id);
 	
+	public List<UserTerrain> findByUserId(Long id);
+	
 	
 	@Query("DELETE FROM UserTerrain UT WHERE UT.terrain.id=?1")
 	@Transactional
