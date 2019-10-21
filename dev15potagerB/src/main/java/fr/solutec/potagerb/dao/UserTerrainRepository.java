@@ -24,4 +24,7 @@ public interface UserTerrainRepository extends CrudRepository<UserTerrain, Long>
 	@Modifying
 	public void supprTerrain(Long id);
 	
+	@Query("SELECT COUNT(user.id) FROM UserTerrain WHERE terrain.id=?1 ")
+	public int countUserOfTerrain(Long id);
+	
 }	
