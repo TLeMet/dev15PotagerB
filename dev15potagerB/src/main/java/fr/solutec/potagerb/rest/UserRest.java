@@ -1,6 +1,7 @@
 package fr.solutec.potagerb.rest;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,17 @@ public class UserRest {
 	@Autowired
 	private UserRepository userRep;
 	
+	//Login User
+	//@RequestMapping(value="/login", method=RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@ResponseBody
+	//public User getByLoginPass(@RequestBody String mail, String password){
+	public User getByLoginPass(@RequestBody Map<String, String> json){
+	
+		Optional<User> u = userRep.findByMail(json.get("mail"));
+		return (u.get().getPw().equals(json.get("pw"))) ? u.get() : null;
+	}
+	
 	// Affichage de tous les users
 	@RequestMapping(value="/users", method=RequestMethod.GET)
 	public List<User> getAllUsers(){
@@ -30,7 +42,7 @@ public class UserRest {
 	
 	// Recherche user par mail
 	@RequestMapping(value="/users/mail/{mail}", method=RequestMethod.GET)
-	public List<User> getUserbyMail(@PathVariable String mail) {
+	public Optional<User> getUserbyMail(@PathVariable String mail) {
 		return userRep.findByMail(mail); 
 	}
 	

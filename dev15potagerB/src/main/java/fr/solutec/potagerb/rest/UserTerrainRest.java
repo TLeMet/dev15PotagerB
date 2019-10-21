@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.solutec.potagerb.dao.AdRepo;
 import fr.solutec.potagerb.dao.TerrainRepository;
 import fr.solutec.potagerb.dao.UserTerrainRepository;
 import fr.solutec.potagerb.entities.Terrain;
@@ -21,6 +22,9 @@ public class UserTerrainRest {
 
 	@Autowired
 	private UserTerrainRepository userTerrRep;
+	
+	@Autowired
+	private AdRepo adrepo;
 	
 	// Affichage de tous les terrains
 	@RequestMapping(value="/userterrainsall", method= RequestMethod.GET)
@@ -40,10 +44,22 @@ public class UserTerrainRest {
 		return (List<UserTerrain>) userTerrRep.findByTerrainId(id);
 	}
 	
-	// Suppression des users d'un terrain via l'id terrain
+	/*// Suppression des users d'un terrain via l'id terrain
 	@RequestMapping(value="/userofterrain/{id}", method= RequestMethod.DELETE)
 	public boolean supprTerrain(@PathVariable Long id) {
 		userTerrRep.deleteByTerrainId(id);
 		return true;
+	}*/
+	
+	
+	// Suppression des users d'un terrain via l'id terrain
+	@RequestMapping(value="/userofterrain/{id}", method= RequestMethod.DELETE)
+	public boolean supprTerrain(@PathVariable Long id) {
+		userTerrRep.supprTerrain(id);
+		return true;
 	}
+	
+	// Compter nb utilisateurs d'un terrain par l'id terrain
+	
+
 }
