@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import fr.solutec.potagerb.entities.Terrain;
 
@@ -23,10 +24,14 @@ public interface TerrainRepository extends CrudRepository<Terrain, Long>{
 	
 	public Optional<Terrain> findByNomIgnoreCase(String nom);
 	
+	/* // Marche OK
+	@Query("select t from Terrain t where upper(t.nom) like upper('%pa%') or upper(t.ville) like upper('%pa%')")
+	public List<Terrain> aaa(); */
 	
-	/* @Query("select t.adresse from Terrain t where t.ville like %?#{escape([0])} escape ?#{escapeCharacter()}")
-	public Optional<Terrain> aaa(String a); */
+	// @Query("select t from Terrain t where upper(t.nom) like upper(%?1%) or upper(t.ville) like upper(%?1%)")
+	// public Optional<Terrain> aaa(String input);
 	
-	/* @Query("select Count(user) as tot from UserTerrain ut where ut. = ?1")
-	public int findCountUser(Long id); */
+	
+	
+
 }
