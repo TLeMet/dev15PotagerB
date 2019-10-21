@@ -41,16 +41,12 @@ public class Dev15potagerBApplication implements CommandLineRunner{
 		TypeTerrain typeT1 = new TypeTerrain("Jardin");
 		typeTRep.save(typeT1);
 		
-		Terrain t1 = new Terrain();
-		Terrain t2 = new Terrain();
 		
 		
 		User u1 = new User("test1", "test1", "test1", "test1", "01", 1);
 		User u2 = new User("test2", "test2", "test2", "test2", "02", 2);
 		User u3 = new User("test3", "test3", "test3", "test3", "03", 3);
-		User u1 = new User("test1", "test1", "test1", "test1", "01", 1);
-		User u2 = new User("test2", "test2", "test2", "test2", "02", 2);
-		User u3 = new User("test3", "test3", "test3", "test3", "03", 3);
+
 		userRep.save(u1);
 		userRep.save(u2);
 		userRep.save(u3);
@@ -58,13 +54,26 @@ public class Dev15potagerBApplication implements CommandLineRunner{
 		@SuppressWarnings("deprecation")
 		Time time = new Time(0,0,1);
 		
-		TypeTerrain typeT1 = new TypeTerrain("Jardin");
-		typeTRep.save(typeT1);
 		
 		
 		Terrain t1 = new Terrain("terrain1", "1.1", "ad1", "Paris", 14.5, time, time, 10, "description", typeT1, u1);
 		Terrain t2 = new Terrain("terrain2", "2.2", "ad2", "Paris", 14.5, time, time, 5, "description", typeT1, u3);
 		terrRep.save(t1);
 		terrRep.save(t2);
+		
+		
+		UserTerrain usert1 = new UserTerrain(u1, t1); 
+		UserTerrain usert2 = new UserTerrain(u2, t1); 
+		UserTerrain usert3 = new UserTerrain(u3, t2); 
+		UserTerrain usert4 = new UserTerrain(u2, t2); 
+		
+		userTerrainRepos.save(usert1);
+		userTerrainRepos.save(usert2);
+		userTerrainRepos.save(usert3);
+		userTerrainRepos.save(usert4);
+		
+		
+		
+		
 	}
 }
