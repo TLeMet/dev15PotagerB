@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.solutec.potagerb.dao.TerrainRepository;
+import fr.solutec.potagerb.dao.UserTerrainRepository;
 import fr.solutec.potagerb.entities.Terrain;
 
 
@@ -25,6 +26,9 @@ public class TerrainRest {
 
 	@Autowired
 	private TerrainRepository terrRep;
+	
+	@Autowired
+	private UserTerrainRepository userTerrRep;
 	
 	// Affichage de tous les terrains
 	@RequestMapping(value="/terrains", method= RequestMethod.GET)
@@ -65,15 +69,13 @@ public class TerrainRest {
 		return terrRep.findByNomIgnoreCase(nom);
 	}
 	
-	/* // Recherche terrain par nom ou ville contenant lettre
-	@RequestMapping(value="/terrains/nomville/%input%", method= RequestMethod.GET)
-	public Optional<Terrain> getTerrainByNameOrVille(@PathVariable String input){
-		return terrRep.aaa(input); 
-	} */
+	 // Recherche terrain par nom ou ville contenant lettre
+	@RequestMapping(value="/terrains/nomville/{input}", method= RequestMethod.GET)
+	public List<Terrain> getTerrainByNameOrVille(@PathVariable String input){
+		return terrRep.SearchByVilleAndNom("%"+input+"%"); 
+	} 
 	
-	
-	
-	
+		
 	// Insertion terrain
 	@RequestMapping(value="/terrains", method= RequestMethod.POST)
 	public Terrain saveTerrain(@RequestBody Terrain t) {
@@ -83,7 +85,7 @@ public class TerrainRest {
 	// Supression d'un terrain
 	@RequestMapping(value="/terrains/{id}", method= RequestMethod.DELETE)
 	public boolean supprTerrain(@PathVariable Long id) {
-		
+		userTerrRep.supprTerrain(id);
 		terrRep.deleteById(id);
 		return true;
 	}
