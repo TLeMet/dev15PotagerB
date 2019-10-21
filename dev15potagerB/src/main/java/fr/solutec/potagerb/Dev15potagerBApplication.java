@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import fr.solutec.potagerb.dao.AdRepo;
 import fr.solutec.potagerb.dao.TerrainRepository;
 import fr.solutec.potagerb.dao.TypeTerrainRepository;
 import fr.solutec.potagerb.dao.UserRepository;
@@ -28,6 +29,9 @@ public class Dev15potagerBApplication implements CommandLineRunner{
 	
 	@Autowired
 	private UserTerrainRepository userTerrainRepos;
+	
+	@Autowired
+	private AdRepo adrepo;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Dev15potagerBApplication.class, args);
@@ -68,6 +72,12 @@ public class Dev15potagerBApplication implements CommandLineRunner{
 		userTerrainRepos.save(usert3);
 		userTerrainRepos.save(usert4);
 		
+		Admin ad1 = new Admin("vfdhygv", "hgdcfj");
+		Admin ad2 = new Admin("vfdhygv", "hgdcfj");
+		Admin ad3 = new Admin("vfdhygv", "hgdcfj");
+		adrepo.save(ad1);
+		adrepo.save(ad2);
+		adrepo.save(ad3);
 		
 		
 		

@@ -14,9 +14,8 @@ public class Admin {
 		super();
 	}
 
-	public Admin(Long id, String pseudo, String pw) {
+	public Admin( String pseudo, String pw) {
 		super();
-		this.id = id;
 		this.pseudo = pseudo;
 		this.pw = pw;
 	}
