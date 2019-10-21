@@ -21,8 +21,8 @@ public class User {
 	@Column(nullable = true)
 	private int age;
 	
-	@ManyToMany (mappedBy = "userOfTerrain")
-	Set<Terrain> terrainOfUser;
+	/*@ManyToMany (mappedBy = "userOfTerrain")
+	Set<Terrain> terrainOfUser;*/
 
 	public User() {}
 
@@ -122,9 +122,13 @@ public class User {
 
 
 
+
+
+
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", mail=" + mail + ", pw=" + pw + ", tel="
-				+ tel + ", age=" + age + ", terrainOfUser=" + terrainOfUser + "]";
+				+ tel + ", age=" + age + "]";
 	}
 }

@@ -33,12 +33,12 @@ public class Terrain {
 	private String description;
 	//Photo!
 	
-	@ManyToMany @JoinTable(
+	/*@ManyToMany @JoinTable(
 			name = "User_Terrain", 
 			joinColumns = @JoinColumn(name = "idUser"),
 			inverseJoinColumns = @JoinColumn(name = "idTerrain"))
 	Set<User> userOfTerrain;
-	
+	*/
 	@ManyToOne
 	private TypeTerrain type;
 	
@@ -48,7 +48,7 @@ public class Terrain {
 	public Terrain() {}
 
 	public Terrain(String nom, String gps, String adresse, String ville, double surface, Time hOuverture,
-			Time hFermeture, int maxUser, String description, Set<User> userOfTerrain, TypeTerrain type,
+			Time hFermeture, int maxUser, String description, TypeTerrain type,
 			User proprietaire) {
 		super();
 
@@ -61,7 +61,6 @@ public class Terrain {
 		this.hFermeture = hFermeture;
 		this.maxUser = maxUser;
 		this.description = description;
-		this.userOfTerrain = userOfTerrain;
 		this.type = type;
 		this.proprietaire = proprietaire;
 	}
@@ -146,13 +145,6 @@ public class Terrain {
 		this.description = description;
 	}
 
-	public Set<User> getUserOfTerrain() {
-		return userOfTerrain;
-	}
-
-	public void setUserOfTerrain(Set<User> userOfTerrain) {
-		this.userOfTerrain = userOfTerrain;
-	}
 
 	public TypeTerrain getType() {
 		return type;
@@ -168,6 +160,13 @@ public class Terrain {
 
 	public void setProprietaire(User proprietaire) {
 		this.proprietaire = proprietaire;
+	}
+
+	@Override
+	public String toString() {
+		return "Terrain [id=" + id + ", nom=" + nom + ", gps=" + gps + ", adresse=" + adresse + ", ville=" + ville
+				+ ", surface=" + surface + ", hOuverture=" + hOuverture + ", hFermeture=" + hFermeture + ", maxUser="
+				+ maxUser + ", description=" + description + ", type=" + type + ", proprietaire=" + proprietaire + "]";
 	}
 
 	
