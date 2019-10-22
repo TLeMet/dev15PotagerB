@@ -14,6 +14,9 @@ import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.TemporalType;
+
+import org.springframework.data.jpa.repository.Temporal;
 
 @Entity
 @IdClass(UserTerrainConstraint.class)
@@ -31,13 +34,12 @@ public class UserTerrain implements Serializable{
 	@ManyToOne
 	private Terrain terrain;
 	
+	@Column(columnDefinition = "boolean default false", nullable=false)
 	private boolean etat;
 	private String message;
 	
-
 	private Date dateDemande;
-	
-	
+	 
 	
 	public UserTerrain() {
 		// TODO Auto-generated constructor stub
