@@ -38,7 +38,8 @@ public class UserTerrain implements Serializable{
 	private boolean etat;
 	private String message;
 	
-	private Date dateDemande;
+	@Column(columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", nullable = false, updatable = false)
+	private Date dateDemande;  
 	 
 	
 	public UserTerrain() {

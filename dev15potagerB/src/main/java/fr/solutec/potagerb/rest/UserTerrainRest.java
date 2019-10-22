@@ -88,6 +88,8 @@ public class UserTerrainRest {
 	// Création d'une demande d'un user sur un terrain
 	@RequestMapping(value="/insertDemande/{idUser}/{idTerrain}", method= RequestMethod.POST)
 	public UserTerrain saveDemandeUserTerrain(@PathVariable Long idUser, @PathVariable Long idTerrain, @RequestBody UserTerrain ut) {
+		ut.getUser().setId(idUser);
+		ut.getTerrain().setId(idTerrain);
 		return userTerrRep.save(ut);
 	}
 	
