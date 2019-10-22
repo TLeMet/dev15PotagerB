@@ -78,6 +78,13 @@ public class UserTerrainRest {
 		return userTerrRep.requestOfTerrain(id);
 	}
 	
+	// Liste des utilisateurs acceptés d'un terrain
+	@RequestMapping(value="/acceptedofterrain/{id}")
+	public List<UserTerrain> getAcceptedOfTerrain(@PathVariable Long id) {
+		return userTerrRep.acceptedOfTerrain(id);
+	}
+	
+	
 	// Création d'une demande d'un user sur un terrain
 	@RequestMapping(value="/insertDemande/{idUser}/{idTerrain}", method= RequestMethod.POST)
 	public UserTerrain saveDemandeUserTerrain(@PathVariable Long idUser, @PathVariable Long idTerrain, @RequestBody UserTerrain ut) {

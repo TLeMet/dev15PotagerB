@@ -31,10 +31,10 @@ public class UserTerrain implements Serializable{
 	@ManyToOne
 	private Terrain terrain;
 	
-	private boolean etat = false;
+	private boolean etat;
 	private String message;
 	
-	
+
 	private Date dateDemande;
 	
 	

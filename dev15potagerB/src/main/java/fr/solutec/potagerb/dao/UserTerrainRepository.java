@@ -43,5 +43,9 @@ public interface UserTerrainRepository extends CrudRepository<UserTerrain, Long>
 
 	@Query("SELECT UT FROM UserTerrain UT WHERE UT.terrain.id=?1 AND UT.etat=false")
 	public List<UserTerrain> requestOfTerrain(Long id);
+	
+	@Query("SELECT UT FROM UserTerrain UT WHERE UT.terrain.id=?1 AND UT.etat=true")
+	public List<UserTerrain> acceptedOfTerrain(Long id);
+	
 
 	}	
