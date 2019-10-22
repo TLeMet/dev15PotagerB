@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -75,7 +76,12 @@ public class UserTerrainRest {
 	@RequestMapping(value="/requestofterrain/{id}", method= RequestMethod.GET)
 	public List<Object> getRequestOfTerrain(@PathVariable Long id){
 		return userTerrRep.requestOfTerrain(id);
-
+	}
+	
+	// Création d'une demande d'un user sur un terrain
+	@RequestMapping(value="/insertDemande/{idUser}/{idTerrain}", method= RequestMethod.POST)
+	public UserTerrain saveDemandeUserTerrain(@PathVariable Long idUser, @PathVariable Long idTerrain, @RequestBody UserTerrain ut) {
+		return userTerrRep.save(ut);
 	}
 	
 }
