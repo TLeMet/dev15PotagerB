@@ -67,4 +67,12 @@ public class UserTerrainRest {
 		userTerrRep.supprUserOfTerrain(idUser, idTerrain);
 		return true;
 	}
+	
+	// Acceptation d'un User d'un terrain (passage état true)
+	@RequestMapping(value="/accept.userofterrain/{idUser}/{idTerrain}", method=RequestMethod.POST)
+	public boolean acceptUserOfTerrain(@PathVariable Long idUser, @PathVariable Long idTerrain) {
+		userTerrRep.acceptUserOfTerrain(idUser, idTerrain);
+		return true;
+	}
+	
 }
