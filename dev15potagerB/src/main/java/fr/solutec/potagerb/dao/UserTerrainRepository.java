@@ -18,6 +18,8 @@ public interface UserTerrainRepository extends CrudRepository<UserTerrain, Long>
 	
 	public List<UserTerrain> findByTerrainId(Long id);
 	
+	public List<UserTerrain> findByUserId(Long id);
+	
 	
 	@Query("DELETE FROM UserTerrain UT WHERE UT.terrain.id=?1")
 	@Transactional
@@ -31,9 +33,15 @@ public interface UserTerrainRepository extends CrudRepository<UserTerrain, Long>
 	@Transactional
 	@Modifying
 	public void supprUserOfTerrain(Long id1, Long id2);
+
 	
 	@Query("Update UserTerrain UT set etat = true WHERE UT.user.id=?1 AND UT.terrain.id=?2")
 	@Transactional
 	@Modifying
 	public void acceptUserOfTerrain(Long id1, Long id2);
-}	
+
+
+	@Query("SELECT UT.user.nom, UT.user.prenom, UT.dateDemande, UT.message FROM UserTerrain UT WHERE UT.terrain.id=?1 AND UT.etat=true")
+	public List<Object> requestOfTerrain(Long id);
+
+	}	

@@ -13,7 +13,7 @@ import fr.solutec.potagerb.entities.Terrain;
 
 public interface TerrainRepository extends CrudRepository<Terrain, Long>{
 
-	public Optional<Terrain> findByProprietaireId(Long id);
+	public List<Terrain> findByProprietaireId(Long id);
 	
 	// @Query(value="SELECT t.*, tp.id as idtp, tp.libelle FROM terrain t INNER JOIN type_terrain tp ON t.type_id = tp.id WHERE t.type_id = 1", nativeQuery = true)
 	// public List<Object> findByIdType();
