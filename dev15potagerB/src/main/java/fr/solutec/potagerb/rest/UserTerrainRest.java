@@ -74,7 +74,7 @@ public class UserTerrainRest {
 	
 	// Liste des demandes associées à un terrain 
 	@RequestMapping(value="/requestofterrain/{id}", method= RequestMethod.GET)
-	public List<Object> getRequestOfTerrain(@PathVariable Long id){
+	public List<UserTerrain> getRequestOfTerrain(@PathVariable Long id){
 		return userTerrRep.requestOfTerrain(id);
 	}
 	
