@@ -4,6 +4,7 @@ package fr.solutec.potagerb.entities;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,9 +31,13 @@ public class UserTerrain implements Serializable{
 	@ManyToOne
 	private Terrain terrain;
 	
-	private boolean etat;
+	private boolean etat = false;
 	private String message;
+	
+	
 	private Date dateDemande;
+	
+	
 	
 	public UserTerrain() {
 		// TODO Auto-generated constructor stub
