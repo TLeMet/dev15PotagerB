@@ -20,9 +20,6 @@ import fr.solutec.potagerb.entities.Terrain;
 @CrossOrigin("*")
 public class TerrainRest {
 	
-	class tyTerrain{
-		
-	}
 
 	@Autowired
 	private TerrainRepository terrRep;
