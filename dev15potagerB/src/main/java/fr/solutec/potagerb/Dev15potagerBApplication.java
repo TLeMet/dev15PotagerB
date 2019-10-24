@@ -112,7 +112,7 @@ public class Dev15potagerBApplication implements CommandLineRunner {
 		
 		GroupConv gc5 = new GroupConv(u3, t1, "Trop bgg", date, image.getBytes());
 		grConvRep.save(gc5);
-	 
+	
 
 		
 		/*
