@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -26,6 +27,9 @@ public class GroupConv {
 	@Column(columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", updatable = false)
 	private Date dateMessage;
 	
+	@Lob
+	private byte[] image;
+	
 	public GroupConv() {
 		super();
 	}
@@ -36,6 +40,17 @@ public class GroupConv {
 		this.terrain = terrain;
 		this.message = message;
 		this.dateMessage = dateMessage;
+	}
+	
+	
+
+	public GroupConv(User auteur, Terrain terrain, String message, Date dateMessage, byte[] image) {
+		super();
+		this.auteur = auteur;
+		this.terrain = terrain;
+		this.message = message;
+		this.dateMessage = dateMessage;
+		this.image = image;
 	}
 
 	public Long getId() {
@@ -76,6 +91,15 @@ public class GroupConv {
 
 	public void setDateMessage(Date dateMessage) {
 		this.dateMessage = dateMessage;
+	}
+
+	
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
 	}
 
 	@Override

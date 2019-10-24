@@ -41,5 +41,11 @@ public class GroupConvRest {
 		return true;
 	}
 	
+	// Liste de toutes les images d'un terrain
+	@RequestMapping(value="/imageGroupe/{id}", method= RequestMethod.GET)
+	public List<GroupConv> getAllImageByTerrain(@PathVariable Long id){
+		return groupConvRep.findAllImageByTerrain(id);
+	}
+	
 	
 } 

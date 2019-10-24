@@ -101,7 +101,7 @@ public class Dev15potagerBApplication implements CommandLineRunner {
 		
 		// Test image groupe
 		String image = "";
-		ImageGroup img = new ImageGroup("test", image.getBytes(), t1);
+		ImageGroup img = new ImageGroup("test", image.getBytes(), t1); 
 	
 
 		
