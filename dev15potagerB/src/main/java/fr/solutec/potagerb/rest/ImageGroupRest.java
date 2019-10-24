@@ -27,6 +27,6 @@ public class ImageGroupRest {
 	@RequestMapping(value="/imageGroup/{idTerrain}", method= RequestMethod.GET)
 	public ImageGroup getImageGroup(@PathVariable Long idTerrain) {
 		return imGrRep.findByTerrainId(idTerrain);
-	}
+	} 
 	
 }

@@ -11,6 +11,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import fr.solutec.potagerb.dao.AdminRepository;
+import fr.solutec.potagerb.dao.GroupConvRepository;
 import fr.solutec.potagerb.dao.ImageGroupRepository;
 import fr.solutec.potagerb.dao.TerrainRepository;
 import fr.solutec.potagerb.dao.TypeTerrainRepository;
@@ -33,8 +34,14 @@ public class Dev15potagerBApplication implements CommandLineRunner {
 
 	@Autowired
 	private AdminRepository adrepo;
-
+	
+	@Autowired
 	private ImageGroupRepository imGrRep;
+	
+	@Autowired
+	private GroupConvRepository grConvRep;
+	
+	
 
 	public static void main(String[] args) {
 		SpringApplication.run(Dev15potagerBApplication.class, args);
@@ -80,10 +87,22 @@ public class Dev15potagerBApplication implements CommandLineRunner {
 		userTerrainRepos.save(usert3);
 		userTerrainRepos.save(usert4);
 		userTerrainRepos.save(usert5);
-
+		
+		GroupConv gc1 = new GroupConv(u1, t1, "Wesh la famille des jardiniers", date);
+		GroupConv gc2 = new GroupConv(u3, t1, "Salut salut", date);
+		GroupConv gc3 = new GroupConv(u1, t1, "Bla Bla Bla", date);
+		GroupConv gc4 = new GroupConv(u3, t1, "aztyzeryaztez", date);
+		grConvRep.save(gc1);
+		grConvRep.save(gc2);
+		grConvRep.save(gc3);
+		grConvRep.save(gc4);
+		
+		
+		
 		// Test image groupe
 		String image = "";
 		ImageGroup img = new ImageGroup("test", image.getBytes(), t1);
+	
 
 		
 		/*
