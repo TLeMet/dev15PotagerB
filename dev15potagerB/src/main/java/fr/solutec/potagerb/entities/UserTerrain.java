@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.jpa.repository.Temporal;
 
 @Entity
@@ -38,7 +39,8 @@ public class UserTerrain implements Serializable{
 	private boolean etat;
 	private String message;
 	
-	@Column(columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", updatable = false)
+	@CreationTimestamp
+	@Column(columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, nullable = false, updatable = false)
 	private Date dateDemande;
 	 
 	

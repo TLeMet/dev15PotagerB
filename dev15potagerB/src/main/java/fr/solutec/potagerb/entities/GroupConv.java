@@ -1,5 +1,6 @@
 package fr.solutec.potagerb.entities;
 
+import java.nio.channels.NonWritableChannelException;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,6 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
+
 
 @Entity
 public class GroupConv {
@@ -24,7 +30,9 @@ public class GroupConv {
 	
 	private String message;
 	
-	@Column(columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", updatable = false)
+	@Temporal (TemporalType.TIMESTAMP)
+	@CreationTimestamp
+	@Column(columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, nullable = false, updatable = false)
 	private Date dateMessage;
 	
 	@Lob

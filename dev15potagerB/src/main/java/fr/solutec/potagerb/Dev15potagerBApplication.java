@@ -52,8 +52,14 @@ public class Dev15potagerBApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		TypeTerrain typeT1 = new TypeTerrain("Jardin");
+		TypeTerrain typeT1 = new TypeTerrain("Jardin particulier");
+		TypeTerrain typeT2 = new TypeTerrain("Jardin public");
+		TypeTerrain typeT3 = new TypeTerrain("Balcon/Terrasse");
+		TypeTerrain typeT4 = new TypeTerrain("Champs");
 		typeTRep.save(typeT1);
+		typeTRep.save(typeT2);
+		typeTRep.save(typeT3);
+		typeTRep.save(typeT4);
 
 		User u1 = new User("test1", "test1", "test1", "test1", "01", 1);
 		User u2 = new User("test2", "test2", "test2", "test2", "02", 2);
