@@ -24,6 +24,8 @@ public class Terrain {
 	private String adresse;
 	@Column(nullable= false)
 	private String ville;
+	@Column(nullable= false)
+	private String postal;
 	@Column(nullable=false)
 	private double surface;
 	private Time hOuverture;
@@ -47,15 +49,15 @@ public class Terrain {
 	
 	public Terrain() {}
 
-	public Terrain(String nom, String gps, String adresse, String ville, double surface, Time hOuverture,
+	public Terrain(String nom, String adresse, String ville, String postal, double surface, Time hOuverture,
 			Time hFermeture, int maxUser, String description, TypeTerrain type,
 			User proprietaire) {
 		super();
 
 		this.nom = nom;
-		this.gps = gps;
 		this.adresse = adresse;
 		this.ville = ville;
+		this.postal = postal;
 		this.surface = surface;
 		this.hOuverture = hOuverture;
 		this.hFermeture = hFermeture;
@@ -103,6 +105,14 @@ public class Terrain {
 
 	public void setVille(String ville) {
 		this.ville = ville;
+	}
+	
+	public String getPostal() {
+		return postal;
+	}
+
+	public void setPostal(String postal) {
+		this.postal = postal;
 	}
 
 	public double getSurface() {

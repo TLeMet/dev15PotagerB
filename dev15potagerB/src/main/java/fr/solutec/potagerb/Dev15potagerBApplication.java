@@ -75,8 +75,8 @@ public class Dev15potagerBApplication implements CommandLineRunner {
 		@SuppressWarnings("deprecation")
 		Date date = new Date(119, 00, 02);
 
-		Terrain t1 = new Terrain("terrain1", "1.1", "ad1", "Paris", 14.5, time, time, 10, "description", typeT1, u1);
-		Terrain t2 = new Terrain("terrain2", "2.2", "ad2", "Paris", 14.5, time, time, 5, "description", typeT1, u1);
+		Terrain t1 = new Terrain("terrain1", "31 rue d'Alésia", "Paris", "75014", 14.5, time, time, 10, "description", typeT1, u1);
+		Terrain t2 = new Terrain("terrain2", "12 Place d'Italie", "Paris", "75013", 14.5, time, time, 5, "description", typeT1, u1);
 		terrRep.save(t1);
 		terrRep.save(t2);
 
