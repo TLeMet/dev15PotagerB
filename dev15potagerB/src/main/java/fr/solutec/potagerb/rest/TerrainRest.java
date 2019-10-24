@@ -1,8 +1,12 @@
 package fr.solutec.potagerb.rest;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
+import org.hibernate.mapping.Array;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +19,10 @@ import fr.solutec.potagerb.dao.GroupConvRepository;
 import fr.solutec.potagerb.dao.ImageGroupRepository;
 import fr.solutec.potagerb.dao.TerrainRepository;
 import fr.solutec.potagerb.dao.UserTerrainRepository;
+import fr.solutec.potagerb.entities.GroupConv;
+import fr.solutec.potagerb.entities.ImageGroup;
 import fr.solutec.potagerb.entities.Terrain;
+import fr.solutec.potagerb.entities.UserTerrain;
 
 
 @RestController
@@ -88,11 +95,33 @@ public class TerrainRest {
 	}
 	
 	// Supression d'un terrain
+	@Transactional
 	@RequestMapping(value="/terrains/{id}", method= RequestMethod.DELETE)
 	public boolean supprTerrain(@PathVariable Long id) {
-		groupConvRep.supprGroupMessageByTerrain(id);
-		userTerrRep.supprTerrain(id);
-		imGrRep.deleteById(id);
+		
+		List<GroupConv> gc1 = new ArrayList<GroupConv>();
+		List<GroupConv> gc2 = new ArrayList<GroupConv>();
+		gc1 = groupConvRep.findAllImageByTerrain(id);
+		gc2 = groupConvRep.findAllMessageByTerrain(id);
+		
+		if (gc1 != null || gc2 != null) {
+			groupConvRep.supprGroupMessageByTerrain(id);	
+		}
+		
+		List<UserTerrain> ut1 = new ArrayList<UserTerrain>();
+		ut1 = userTerrRep.findByTerrainId(id);
+					
+		if (ut1 != null) {
+			userTerrRep.deleteByTerrainId(id);
+		}
+		
+		ImageGroup im = new ImageGroup();
+		im = imGrRep.findByTerrainId(id);
+		
+		if (im != null) {
+			imGrRep.deleteById(id);	
+		}
+
 		terrRep.deleteById(id);
 		return true;
 	}
