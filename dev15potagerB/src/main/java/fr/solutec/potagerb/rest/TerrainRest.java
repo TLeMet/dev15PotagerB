@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.solutec.potagerb.dao.GroupConvRepository;
+import fr.solutec.potagerb.dao.ImageGroupRepository;
 import fr.solutec.potagerb.dao.TerrainRepository;
 import fr.solutec.potagerb.dao.UserTerrainRepository;
 import fr.solutec.potagerb.entities.Terrain;
@@ -26,6 +28,12 @@ public class TerrainRest {
 	
 	@Autowired
 	private UserTerrainRepository userTerrRep;
+	
+	@Autowired
+	private ImageGroupRepository imGrRep;
+	
+	@Autowired
+	private GroupConvRepository groupConvRep;
 	
 	// Affichage de tous les terrains
 	@RequestMapping(value="/terrains", method= RequestMethod.GET)
@@ -82,7 +90,9 @@ public class TerrainRest {
 	// Supression d'un terrain
 	@RequestMapping(value="/terrains/{id}", method= RequestMethod.DELETE)
 	public boolean supprTerrain(@PathVariable Long id) {
+		groupConvRep.supprGroupMessageByTerrain(id);
 		userTerrRep.supprTerrain(id);
+		imGrRep.deleteById(id);
 		terrRep.deleteById(id);
 		return true;
 	}

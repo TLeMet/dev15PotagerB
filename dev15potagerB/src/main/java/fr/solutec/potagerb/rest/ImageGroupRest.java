@@ -29,4 +29,11 @@ public class ImageGroupRest {
 		return imGrRep.findByTerrainId(idTerrain);
 	} 
 	
+	
+	@RequestMapping(value="/imageGroup/{id}", method = RequestMethod.DELETE)
+	public boolean supprImgGroup(@PathVariable Long id) {
+		imGrRep.deleteById(id);
+		return true;
+	}
+	
 }
