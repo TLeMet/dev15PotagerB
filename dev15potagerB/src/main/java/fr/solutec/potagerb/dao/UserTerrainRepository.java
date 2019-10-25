@@ -18,6 +18,7 @@ public interface UserTerrainRepository extends CrudRepository<UserTerrain, Long>
 	
 	public List<UserTerrain> findByTerrainId(Long id);
 	
+	@Query("SELECT UT FROM UserTerrain UT WHERE UT.user.id=?1 AND UT.etat=true")
 	public List<UserTerrain> findByUserId(Long id);
 	
 	
@@ -46,6 +47,7 @@ public interface UserTerrainRepository extends CrudRepository<UserTerrain, Long>
 	
 	@Query("SELECT UT FROM UserTerrain UT WHERE UT.terrain.id=?1 AND UT.etat=true")
 	public List<UserTerrain> acceptedOfTerrain(Long id);
+	
 	
 
 	}	

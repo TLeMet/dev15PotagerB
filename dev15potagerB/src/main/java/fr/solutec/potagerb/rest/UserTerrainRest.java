@@ -66,7 +66,7 @@ public class UserTerrainRest {
 		return true;
 	}
 		
-	// Liste des terrains d'un user via l'id user
+	// Liste des terrains accepté d'un user via l'id user
 	@RequestMapping(value="/terrainofuser/{id}", method= RequestMethod.GET)
 	public List<UserTerrain> getTerrainOfUser(@PathVariable Long id) {
 		return (List<UserTerrain>) userTerrRep.findByUserId(id);
