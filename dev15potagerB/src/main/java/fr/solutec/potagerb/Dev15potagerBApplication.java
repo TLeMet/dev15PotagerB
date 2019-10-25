@@ -113,6 +113,7 @@ public class Dev15potagerBApplication implements CommandLineRunner {
 		userTerrainRepos.save(usert1);
 		userTerrainRepos.save(usert2);
 		userTerrainRepos.save(usert3);
+		userTerrainRepos.save(usert4);
 		
 		
 		GroupConv gc1 = new GroupConv(u3, t1, "Merci d'avoir rejoint mon potager", date);
