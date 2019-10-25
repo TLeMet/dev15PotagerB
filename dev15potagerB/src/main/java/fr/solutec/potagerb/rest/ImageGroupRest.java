@@ -1,5 +1,7 @@
 package fr.solutec.potagerb.rest;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +29,11 @@ public class ImageGroupRest {
 	@RequestMapping(value="/imageGroup/{idTerrain}", method= RequestMethod.GET)
 	public ImageGroup getImageGroup(@PathVariable Long idTerrain) {
 		return imGrRep.findByTerrainId(idTerrain);
+	} 
+	
+	@RequestMapping(value="/image/{id}", method= RequestMethod.GET)
+	public Optional<ImageGroup> getImageById(@PathVariable Long id) {
+		return imGrRep.findById(id);
 	} 
 	
 	
