@@ -89,10 +89,10 @@ public class Dev15potagerBApplication implements CommandLineRunner {
 		
 		// Terrain t = new Terrain(nom, adresse, ville, postal, surface, hOuverture, hFermeture, maxUser, description, type, proprietaire)
 		Terrain t1 = new Terrain("Le potager d'Eugène", "31 rue d'Alésia", "Paris", "75014", 24.5, time, time, 10, "Trop agé pour m'occuper de mon potager, je recherche des gens motivés pour aller planter des choux", typeT1, u3);
-		Terrain t2 = new Terrain("Le Jardin d'Eden", "49 rue Victor Hugo", "Concarneau", "29900", 70, time, time, 5, "J'ai un grand jardin non exploité et je souhaite le mettre à profit. Rejoignez moi !", typeT1, u1);
-		Terrain t3 = new Terrain("Jardiland", "49 rue Victor Hugo", "Concarneau", "29900", 70, time, time, 5, "J'ai un grand jardin non exploité et je souhaite le mettre à profit. Rejoingnez moi !", typeT1, u1);
+		Terrain t2 = new Terrain("Le Jardin d'Eden", "49 rue Victor Hugo", "Concarneau", "29900", 150, time, time, 5, "J'ai un grand jardin non exploité et je souhaite le mettre à profit. Rejoignez moi !", typeT1, u1);
+		Terrain t3 = new Terrain("Jardiland", "39 Chemin des Bateliers", "Aix Les Bains", "73100", 70, time, time, 5, "J'ai un grand jardin non exploité et je souhaite le mettre à profit. Rejoingnez moi !", typeT1, u1);
 		Terrain t4 = new Terrain("Garden", "30 Quai des Belges", "Maubeuge", "59600", 40, time, time, 5, " ", typeT1, u2);
-		Terrain t5 = new Terrain("Central Park", "19 rue Bonneterie", "Montauban", "82000", 70, time, time, 5, " ", typeT1, u1);
+		Terrain t5 = new Terrain("Central Park", "19 rue Bonneterie", "Montauban", "82000", 86, time, time, 5, " ", typeT1, u1);
 		Terrain t6 = new Terrain("Jardin du Luxembourg", "19 rue de l'Epeule", "Rouen", "76000", 52, time, time, 5, "J'ai un grand jardin non exploité et je souhaite le mettre à profit. Rejoingnez moi !", typeT1, u2);
 		Terrain t7 = new Terrain("Jardin de l'Elysée", "55 Rue du Faubourg Saint-Honoré", "Paris", "75008", 10000, time, time, 5, "Trop occupé par ma vie professionnelle, je ne peux m'occuper de mon jardin", typeT1, u7);
 		terrRep.save(t1);
